@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="valentine">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>Login</title>
+</head>
+<body tabindex="-1">
+    <%- include('partials/navbar', {page: '/login'}) %>
+
+    <div class="container mx-auto p-4">
+        <div class="hero bg-base-200 rounded-lg p-6 shadow-lg">
+            <div class="hero-content text-center">
+                <div class="max-w-md">
+                    <h1 class="text-5xl font-bold text-pink-500">Log In</h1>
+                    <p class="py-6">Please provide your credentials below</p>
+
+                    <form method="post" action="/login" class="space-y-6">
+                        <div class="flex flex-col">
+                            <label for="userName" class="text-sm font-semibold text-gray-600">User Name</label>
+                            <input id="userName" name="userName" type="text" placeholder="User Name" required
+                                class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition duration-200">
+                        </div>
+
+                        <div class="flex flex-col">
+                            <label for="password" class="text-sm font-semibold text-gray-600">Password</label>
+                            <input id="password" name="password" type="password" placeholder="Password" required
+                                class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition duration-200">
+                        </div>
+
+                        <% if (errorMessage) { %>
+                            <div class="text-red-600 mb-3"><%= errorMessage %></div>
+                        <% } %>
+
+                        <input type="submit"
+                            class="w-full bg-green-500 text-white p-3 rounded-md cursor-pointer hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-200"
+                            value="Login">
+                    </form>
+
+                    <p class="mt-6">
+                        Don't have an account? <a href="/register" class="text-blue-500 hover:text-blue-600">Register here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
